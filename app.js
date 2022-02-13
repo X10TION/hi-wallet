@@ -28,15 +28,9 @@ db.connect ((error) => {
     }
 
 })
-app.get("/", (req,res) =>  {
-    // res.send(  " <h1>home page </h1> ")
-    res.render("index")
-})
-
-app.get("/register", (req,res) =>  {
-    // res.send(  " <h1>home page </h1> ")
-    res.render("register")
-})
+// define Router on pages  
+app.use ('/', require('./routes/pages'));
+app.use ('/auth', require('./routes/auth'));
 
 app.listen(5000, () => { 
     console.log(  "server start at port  : 500");
